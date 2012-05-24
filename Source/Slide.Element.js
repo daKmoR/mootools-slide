@@ -35,9 +35,9 @@ Slide.Element = new Class({
 		this.element = element;
 		this.savedStyle = this.element.get('style');
 		this.addToSlide();
-		if (this.options.setsSlideSize === true) {
-			this.slide.setSize({x: this.options.width, y: this.options.height});
-		}
+//		if (this.options.setsSlideSize === true) {
+//			this.slide.setSize({x: this.options.width, y: this.options.height});
+//		}
 		if (this.options.isStartElement === true) {
 			//this.slide.currentElement = this;
 			this.slide.show(this);
@@ -52,7 +52,7 @@ Slide.Element = new Class({
 		this.slide.lastAddedElement = this;
 		this.slide._elements.push(this);
 
-		this.slide.elements.grab(this.element);
+		this.slide.wrap.grab(this.element);
 	},
 
 	hide: function() {

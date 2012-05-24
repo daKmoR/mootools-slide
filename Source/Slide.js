@@ -33,16 +33,16 @@ var Slide = new Class({
 	},
 
 	build: function() {
-		this.wrap.addClass('slideWrap');
-		this.elements = new Element('div', {'class': 'slideElements'});
-		this.wrap.grab(this.elements);
-
+		this.wrap.addClass('slide');
 		this.container = this.wrap.getParent();
 	},
 
 	setSize: function(size) {
-		this.elements.setStyle('width', size.x);
-		this.elements.setStyle('height', size.y);
+		this.wrap.setStyles(size);
+	},
+
+	getSize: function() {
+		return { width: this.wrap.getStyle('width').toInt(), height: this.wrap.getStyle('height').toInt() };
 	},
 
 	show: function(element, fxGroup) {
@@ -121,6 +121,5 @@ var Slide = new Class({
 			}
 		}
 	}
-
 
 });
