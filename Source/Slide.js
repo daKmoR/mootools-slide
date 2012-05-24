@@ -2,7 +2,7 @@
 ---
 
 name: Slide
-description: allows to create almost any Sliding Stuff (Galleries, Tabs...) with multiple effects [CSS:Stack/Source/Galleries/Slide/Css/SlideBase.css]
+description: allows to create almost any Sliding Stuff (Galleries, Tabs...) with multiple effects [CSS:Slide/Source/Css/SlideBase.css]
 license: MIT-style license.
 requires: [Core/Element.Dimensions, Core/Element.Style, Core/Fx.Tween, Core/Fx.Morph, Core/Fx.Transitions, More/Fx.Elements, More/Scroller, More/Fx.Scroll, More/Element.Position, More/Assets, More/URI, /Gallery]
 provides: Slide

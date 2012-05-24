@@ -3,7 +3,7 @@
 name: Behavior.Slide
 description: Adds a slide interface
 provides: [Behavior.Slide]
-requires: [Behavior/Behavior, /Slide]
+requires: [Behavior/Behavior, Slide, Delegator.SlideControls]
 script: Behavior.Slide.js
 
 ...
