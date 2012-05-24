@@ -17,10 +17,9 @@ Slide.Element = new Class({
 	Implements: [Options, Chain, Events],
 
 	options: {
-		width: 200,
-		height: 400,
-		setsSlideSize: true,
-		isStartElement: false
+		size: { width: 200,	height: 400 },
+		setsSlideSize: false,
+		current: false
 	},
 
 	previousElement: null,
@@ -35,13 +34,13 @@ Slide.Element = new Class({
 		this.element = element;
 		this.savedStyle = this.element.get('style');
 		this.addToSlide();
-//		if (this.options.setsSlideSize === true) {
-//			this.slide.setSize({x: this.options.width, y: this.options.height});
-//		}
-		if (this.options.isStartElement === true) {
-			//this.slide.currentElement = this;
-			this.slide.show(this);
+		if (this.options.setsSlideSize === true) {
+			this.slide.setSize(this.options.size);
 		}
+//		if (this.options.isStartElement === true) {
+//			//this.slide.currentElement = this;
+//			this.slide.show(this);
+//		}
 	},
 
 	addToSlide: function() {

@@ -16,8 +16,7 @@ var Slide = new Class({
 
 	options: {
 		mode: 'repeat', /* [repeat, reverse, random, once] */
-		step: 1,
-		times: 1,
+		autoStart: true,
 		positionContainer: false,
 		container: null,
 		containerPosition: null //{ position: 'center' }
@@ -29,7 +28,9 @@ var Slide = new Class({
 		if (!(this.wrap = document.id(wrap))) return;
 		this.parent(options);
 		this.build();
-		//this.start.delay(1000, this);
+		if (this.options.autoStart === true) {
+			this.start.delay(10, this);
+		}
 	},
 
 	build: function() {
