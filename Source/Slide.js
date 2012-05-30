@@ -34,7 +34,6 @@ var Slide = new Class({
 	},
 
 	build: function() {
-		this.wrap.addClass('slide');
 		this.container = this.wrap.getParent();
 	},
 
