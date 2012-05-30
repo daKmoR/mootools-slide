@@ -16,7 +16,7 @@ name: Delegator.SlideControls
 
 		triggers['Slide.' + action] = {
 			defaults: {
-				targets: '!body [data-behavior="Slide"]'
+				targets: '!div [data-behavior="Slide"], !div [data-behavior="SlideLine"]'
 			},
 			handler: function(event, link, api) {
 				event.stop();
@@ -25,7 +25,7 @@ name: Delegator.SlideControls
 					api.fail('could not locate target slide to ' + action + ' it', link);
 				}
 				targets.each(function(target) {
-					var slide = target.getBehaviorResult('Slide');
+					var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('SlideLine');
 					slide[action]();
 				});
 			}
