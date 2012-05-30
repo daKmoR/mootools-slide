@@ -16,11 +16,13 @@ tags: [animation, gallery, slide]
 sources:
   - Source/Gallery.js
   - Source/Slide.js
+  - Source/SlideLine.js
   - Source/Slide.Element.js
   - Source/Slide.Image.js
   - Source/Slide.Div.js
   - Source/Slide.Link.js
   - Source/Slide.Link.Request.js
   - Source/Behaviors/Behavior.Slide.js
+  - Source/Behaviors/Behavior.SlideLine.js
   - Source/Behaviors/Behavior.Slide.Element.js
   - Source/Delegators/Delegator.SlideControls.js

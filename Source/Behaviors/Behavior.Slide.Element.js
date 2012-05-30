@@ -12,7 +12,7 @@ script: Behavior.Slide.Element.js
 Behavior.addGlobalFilter('Slide.Element', {
 
 	defaults: {
-		target: '![data-behavior="Slide"]',
+		target: '![data-behavior="Slide"], ![data-behavior="SlideLine"]',
 		type: 'auto',
 		isstartelement: false,
 		width: null,
@@ -21,7 +21,8 @@ Behavior.addGlobalFilter('Slide.Element', {
 	},
 
 	setup: function(element, api) {
-		var slide = element.getElement(api.getAs(String, 'target')).getBehaviorResult('Slide');
+		var target = element.getElement(api.getAs(String, 'target'));
+		var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('SlideLine');
 		var options = {
 			isStartElement: api.getAs(Boolean, 'isstartelement')
 		};
