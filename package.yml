@@ -18,6 +18,7 @@ sources:
   - Source/Slide.js
   - Source/Slide.Element.js
   - Source/Slide.Image.js
+  - Source/Slide.Div.js
   - Source/Slide.Link.js
   - Source/Slide.Link.Request.js
   - Source/Behaviors/Behavior.Slide.js

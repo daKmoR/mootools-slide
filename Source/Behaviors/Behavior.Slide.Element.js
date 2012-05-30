@@ -3,7 +3,7 @@
 name: Behavior.Slide.Element
 description: ...
 provides: [Behavior.Slide.Element]
-requires: [Behavior/Behavior, /Slide.Image, /Slide.Link.Request, /Behavior.Slide]
+requires: [Behavior/Behavior, Slide.Image, Slide.Div, Slide.Link.Request, Behavior.Slide]
 script: Behavior.Slide.Element.js
 
 ...

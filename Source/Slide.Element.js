@@ -96,6 +96,9 @@ Slide.implement({
 		var slideElementType = this.guessElementType(element);
 
 		switch(slideElementType) {
+			case 'Div':
+				slideElement = this.addDiv(element, options);
+				break;
 			case 'Image':
 				slideElement = this.addImage(element, options);
 				break;
