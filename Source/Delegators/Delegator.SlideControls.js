@@ -16,14 +16,18 @@ name: Delegator.SlideControls
 
 		triggers['Slide.' + action] = {
 			defaults: {
-				target: '!body [data-behavior="Slide"]'
+				targets: '!body [data-behavior="Slide"]'
 			},
 			handler: function(event, link, api) {
 				event.stop();
-				var target = link.getElement(api.getAs(String, 'target'));
-				if (!target) api.fail('could not locate target slide to ' + action + ' it', link);
-				var slide = target.getBehaviorResult('Slide');
-				slide[action]();
+				var targets = link.getElements(api.getAs(String, 'targets'));
+				if (!targets) {
+					api.fail('could not locate target slide to ' + action + ' it', link);
+				}
+				targets.each(function(target) {
+					var slide = target.getBehaviorResult('Slide');
+					slide[action]();
+				});
 			}
 		};
 
