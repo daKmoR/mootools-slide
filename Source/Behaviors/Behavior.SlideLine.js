@@ -12,7 +12,8 @@ script: Behavior.SlideLine.js
 Behavior.addGlobalFilter('SlideLine', {
 
 	defaults: {
-		'containerposition': false
+		'containerposition': false,
+		'duration': 4000
 	},
 
 	setup: function(element, api) {
@@ -23,6 +24,7 @@ Behavior.addGlobalFilter('SlideLine', {
 				containerPosition: { position: 'center' }
 			};
 		}
+		options.duration = api.getAs(Number, 'duration');
 
 		return new SlideLine(element, options);
 	}
