@@ -13,7 +13,8 @@ Behavior.addGlobalFilter('SlideLine', {
 
 	defaults: {
 		'containerposition': false,
-		'duration': 4000
+		'duration': 4000,
+		'element-width': 140
 	},
 
 	setup: function(element, api) {
@@ -25,6 +26,7 @@ Behavior.addGlobalFilter('SlideLine', {
 			};
 		}
 		options.duration = api.getAs(Number, 'duration');
+		options.elementSize = { width: api.getAs(Number, 'element-width') };
 
 		return new SlideLine(element, options);
 	}
