@@ -30,7 +30,18 @@ var SlideLine = new Class({
 		this.parent(wrap, options);
 	},
 
+	guessSize: function() {
+		var firstElement = this.wrap.getElement('> *');
+		var dim = firstElement.getDimensions({
+			computeSize: true,
+			styles: ['padding', 'border', 'margin'],
+			mode: 'horizontal'
+		});
+		this.options.elementSize.width = dim.totalWidth;
+	},
+
 	next: function(times) {
+		this.guessSize();
 		this.currentStep += this.options.steps;
 		this.visibleSteps = Math.round(this.container.getWidth() / this.options.elementSize.width);
 
@@ -48,6 +59,7 @@ var SlideLine = new Class({
 	},
 
 	previous: function() {
+		this.guessSize();
 		this.currentStep -= this.options.steps;
 		this.visibleSteps = Math.round(this.container.getWidth() / this.options.elementSize.width);
 
