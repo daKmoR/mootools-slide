@@ -44,6 +44,14 @@ var Slide = new Class({
 	getSize: function() {
 		return { width: this.wrap.getStyle('width').toInt(), height: this.wrap.getStyle('height').toInt() };
 	},
+	
+	start: function() {
+		if (this._elements.length === 1) {
+			this.show(this._elements[0]);
+		} else {
+			this.parent();
+		}
+	},
 
 	show: function(element, fxGroup) {
 		element = typeOf(element) === 'number' ? this._elements[element] : element;
