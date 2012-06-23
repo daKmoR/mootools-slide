@@ -16,7 +16,7 @@ name: Delegator.SlideControls
 
 		triggers['Slide.' + action] = {
 			defaults: {
-				targets: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !div > [data-behavior="SlideLine"], !div > * > [data-behavior="SlideLine"]'
+				targets: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="SlideLine"], !div > * > [data-behavior="SlideLine"], !body [data-behavior="SlideLine"]'
 			},
 			handler: function(event, link, api) {
 				event.stop();

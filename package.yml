@@ -26,3 +26,4 @@ sources:
   - Source/Behaviors/Behavior.SlideLine.js
   - Source/Behaviors/Behavior.Slide.Element.js
   - Source/Delegators/Delegator.SlideControls.js
+  - Source/Delegators/Delegator.Slide.Show.js

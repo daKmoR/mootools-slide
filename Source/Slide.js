@@ -44,8 +44,11 @@ var Slide = new Class({
 	getSize: function() {
 		return { width: this.wrap.getStyle('width').toInt(), height: this.wrap.getStyle('height').toInt() };
 	},
-	
+
 	start: function() {
+		if (this.getSize().height.toInt() === 0) {
+			this.setSize(this._elements[0].options.size);
+		}
 		if (this._elements.length === 1) {
 			this.show(this._elements[0]);
 		} else {
@@ -73,7 +76,7 @@ var Slide = new Class({
 		this.parent();
 	},
 
-	next: function(times) {
+	next: function() {
 		this.currentElement = !this.currentElement ? this.lastAddedElement : this.currentElement;
 		var nextElement = this.currentElement.getNextElement();
 		if (this.options.mode === 'repeat' && nextElement == null) {
@@ -81,6 +84,17 @@ var Slide = new Class({
 		}
 		if (nextElement) {
 			this.show(nextElement);
+		}
+	},
+
+	previous: function() {
+		this.currentElement = !this.currentElement ? this.lastAddedElement : this.currentElement;
+		var previousElement = this.currentElement.getPreviousElement();
+		if (this.options.mode === 'repeat' && previousElement == null) {
+			previousElement = this._elements[this._elements.length-1];
+		}
+		if (previousElement) {
+			this.show(previousElement);
 		}
 	},
 
