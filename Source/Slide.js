@@ -22,12 +22,16 @@ var Slide = new Class({
 		containerPosition: null //{ position: 'center' }
 	},
 
+	currentElement: null,
 	_elements: [],
 
 	initialize: function(wrap, options) {
 		if (!(this.wrap = document.id(wrap))) return;
 		this.parent(options);
 		this.build();
+		(function() {
+			this.show(this._elements[0]);
+		}).delay(2, this);
 		if (this.options.autoStart === true) {
 			this.start.delay(10, this);
 		}
@@ -49,9 +53,7 @@ var Slide = new Class({
 		if (this.getSize().height.toInt() === 0) {
 			this.setSize(this._elements[0].options.size);
 		}
-		if (this._elements.length === 1) {
-			this.show(this._elements[0]);
-		} else {
+		if (this._elements.length > 1) {
 			this.parent();
 		}
 	},

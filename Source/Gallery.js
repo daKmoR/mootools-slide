@@ -57,7 +57,7 @@ var Gallery = new Class({
 
 	start: function() {
 		this.doAuto = true;
-		this.next();
+		this.auto();
 	}
 
 });
