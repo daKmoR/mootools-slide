@@ -22,8 +22,10 @@ sources:
   - Source/Slide.Div.js
   - Source/Slide.Link.js
   - Source/Slide.Link.Request.js
+  - Source/Slide.Pagination.js
   - Source/Behaviors/Behavior.Slide.js
   - Source/Behaviors/Behavior.SlideLine.js
   - Source/Behaviors/Behavior.Slide.Element.js
+  - Source/Behaviors/Behavior.Slide.Pagination.js
   - Source/Delegators/Delegator.SlideControls.js
   - Source/Delegators/Delegator.Slide.Show.js

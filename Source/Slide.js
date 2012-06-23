@@ -71,7 +71,7 @@ var Slide = new Class({
 			this.container.position();
 		}
 
-		this.fireEvent('show', 'showing...');
+		this.fireEvent('show', element);
 		this.currentElement = element;
 		this.parent();
 	},
