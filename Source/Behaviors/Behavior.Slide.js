@@ -13,12 +13,12 @@ Behavior.addGlobalFilter('Slide', {
 
 	defaults: {
 		'containerposition': false,
-		'autostart': true
+		'auto': true
 	},
 
 	setup: function(element, api) {
 		var options = {
-			autoStart: api.getAs(Boolean, 'autostart')
+			auto: api.getAs(Boolean, 'auto')
 		};
 
 		if (api.getAs(Boolean, 'containerposition')) {
