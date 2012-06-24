@@ -35,6 +35,10 @@ var Slide = new Class({
 		if (this.options.auto === true) {
 			this.start.delay(10, this);
 		}
+
+		window.addEvent('resize', function() {
+			this.currentElement.show();
+		}.bind(this));
 	},
 
 	build: function() {

@@ -17,7 +17,8 @@ Slide.Image = new Class({
 	Extends: Slide.Element,
 
 	options: {
-		size: { width: 'auto', height: 'auto' }
+		size: { width: 'auto', height: 'auto' },
+		adjust: 'fitIn' //['fitIn' (defaults), 'crop']
 	},
 
 	initialize: function (image, slide, options) {
@@ -53,19 +54,23 @@ Slide.Image = new Class({
 		var ratiox = sizeTo.width / this.getSize().width,
 			ratioy = sizeTo.height / this.getSize().height,
 			ratio = ratioy < ratiox ? ratioy : ratiox;
-		// crop Ratio => var ratio = ratioy > ratiox ? ratioy : ratiox;
+		if (this.options.adjust === 'crop') {
+			ratio = ratioy > ratiox ? ratioy : ratiox;
+		}
 
 		if (ratio !== 1) {
 			var newSize = { width: this.getSize().width * ratio, height: this.getSize().height * ratio };
 			this.setSize(newSize);
 
-			var paddings = {
-				'padding-left': (sizeTo.width - newSize.width) !== 0 ? (sizeTo.width - newSize.width)/2 : 0,
-				'padding-right': (sizeTo.width - newSize.width) !== 0 ? (sizeTo.width - newSize.width)/2 : 0,
-				'padding-top': (sizeTo.height - newSize.height) !== 0 ? (sizeTo.height - newSize.height)/2 : 0,
-				'padding-bottom': (sizeTo.height - newSize.height) !== 0 ? (sizeTo.height - newSize.height)/2 : 0
-			};
-			this.element.setStyles(paddings);
+			if (this.options.adjust === 'fitIn') {
+				var paddings = {
+					'padding-left': (sizeTo.width - newSize.width) !== 0 ? (sizeTo.width - newSize.width)/2 : 0,
+					'padding-right': (sizeTo.width - newSize.width) !== 0 ? (sizeTo.width - newSize.width)/2 : 0,
+					'padding-top': (sizeTo.height - newSize.height) !== 0 ? (sizeTo.height - newSize.height)/2 : 0,
+					'padding-bottom': (sizeTo.height - newSize.height) !== 0 ? (sizeTo.height - newSize.height)/2 : 0
+				};
+				this.element.setStyles(paddings);
+			}
 		}
 	}
 

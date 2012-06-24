@@ -17,7 +17,11 @@ Slide.Pagination = new Class({
 	Implements: [Options, Chain, Events],
 
 	options: {
-		template: '<a data-trigger="Slide.Show" data-slide-show-element="!body [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle})"><span>{cycle}</span></a>',
+		template: '<a data-trigger="Slide.Show" data-slide-show-element="' +
+							'!div > [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle}),' +
+							'!div > * > [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle}),' +
+							'!body [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle})' +
+							'"><span>{cycle}</span></a>',
 		activeClass: 'active'
 	},
 
