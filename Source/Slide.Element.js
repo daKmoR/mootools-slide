@@ -51,7 +51,7 @@ Slide.Element = new Class({
 		this.slide.lastAddedElement = this;
 		this.slide._elements.push(this);
 
-		this.slide.wrap.grab(this.element);
+		document.id(this.slide).grab(this.element);
 	},
 
 	hide: function() {

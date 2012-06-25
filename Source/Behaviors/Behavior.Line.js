@@ -1,15 +1,15 @@
 /*
 ---
-name: Behavior.SlideLine
+name: Behavior.Line
 description: Adds a slideLine interface
-provides: [Behavior.SlideLine]
-requires: [Behavior/Behavior, SlideLine]
-script: Behavior.SlideLine.js
+provides: [Behavior.Line]
+requires: [Behavior/Behavior, Line]
+script: Behavior.Line.js
 
 ...
 */
 
-Behavior.addGlobalFilter('SlideLine', {
+Behavior.addGlobalFilter('Line', {
 
 	defaults: {
 		'containerposition': false,
@@ -28,7 +28,7 @@ Behavior.addGlobalFilter('SlideLine', {
 		options.duration = api.getAs(Number, 'duration');
 		options.elementSize = { width: api.getAs(Number, 'element-width') };
 
-		return new SlideLine(element, options);
+		return new Line(element, options);
 	}
 
 });

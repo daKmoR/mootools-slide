@@ -1,0 +1,4 @@
+.SlideLineHolder { width: 100%; position: relative; overflow: hidden; }
+	[data-behavior='Line'] { width: 30000px; }
+		[data-behavior='Line'] > * { float: left; }
+		[data-behavior='Line'] > *:first-child { margin-left: 0; }

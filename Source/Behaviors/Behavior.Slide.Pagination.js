@@ -12,12 +12,12 @@ script: Behavior.Slide.Pagination.js
 Behavior.addGlobalFilter('Slide.Pagination', {
 
 	defaults: {
-		target: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="SlideLine"], !div > * > [data-behavior="SlideLine"], !body [data-behavior="SlideLine"]'
+		target: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="Line"], !div > * > [data-behavior="Line"], !body [data-behavior="Line"]'
 	},
 
 	setup: function(element, api) {
 		var target = element.getElement(api.getAs(String, 'target'));
-		var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('SlideLine');
+		var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('Line');
 		var options = {};
 
 		slide.createPagination(element, options);

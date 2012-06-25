@@ -15,7 +15,7 @@ name: Delegator.Slide.Show
 		require: ['element'],
 
 		defaults: {
-			target: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="SlideLine"], !div > * > [data-behavior="SlideLine"], !body [data-behavior="SlideLine"]'
+			target: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="Line"], !div > * > [data-behavior="Line"], !body [data-behavior="Line"]'
 		},
 
 		handler: function(event, link, api) {
@@ -24,7 +24,7 @@ name: Delegator.Slide.Show
 			if (!target) {
 				api.fail('could not locate target slide where to show the element', link);
 			}
-			var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('SlideLine');
+			var slide = target.getBehaviorResult('Slide') || target.getBehaviorResult('Line');
 
 			var element = link.getElement(api.getAs(String, 'element'));
 			if (!element) {

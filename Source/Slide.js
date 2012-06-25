@@ -2,7 +2,7 @@
 ---
 
 name: Slide
-description: allows to create almost any Sliding Stuff (Galleries, Tabs...) with multiple effects [CSS:Slide/Source/Css/SlideBase.css]
+description: allows to create almost any Sliding Stuff (Galleries, Tabs...) with multiple effects [CSS:Slide/Source/Css/Slide.css]
 license: MIT-style license.
 requires: [Core/Element.Dimensions, Core/Element.Style, Core/Fx.Tween, Core/Fx.Morph, Core/Fx.Transitions, More/Fx.Elements, More/Scroller, More/Fx.Scroll, More/Element.Position, More/Assets, More/URI, /Gallery]
 provides: Slide
@@ -25,10 +25,9 @@ var Slide = new Class({
 	currentElement: null,
 	_elements: [],
 
-	initialize: function(wrap, options) {
-		if (!(this.wrap = document.id(wrap))) return;
-		this.parent(wrap, options);
-		this.build();
+	initialize: function(element, options) {
+		this.parent(element, options);
+		this.container = this.element.getParent();
 		(function() {
 			this.display(this._elements[0]);
 		}).delay(2, this);
@@ -38,16 +37,12 @@ var Slide = new Class({
 		}.bind(this));
 	},
 
-	build: function() {
-		this.container = this.wrap.getParent();
-	},
-
 	setSize: function(size) {
-		this.wrap.setStyles(size);
+		this.element.setStyles(size);
 	},
 
 	getSize: function() {
-		return { width: this.wrap.getStyle('width').toInt(), height: this.wrap.getStyle('height').toInt() };
+		return { width: this.element.getStyle('width').toInt(), height: this.element.getStyle('height').toInt() };
 	},
 
 	start: function() {

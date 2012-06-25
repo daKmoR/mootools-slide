@@ -22,8 +22,8 @@ var Gallery = new Class({
 	autotimer: null,
 	doAuto: false,
 
-	initialize: function(wrap, options) {
-		if (!(this.wrap = document.id(wrap))) return;
+	initialize: function(element, options) {
+		if (!(this.element = document.id(element))) return;
 		this.setOptions(options);
 		this.doAuto = !!this.options.auto;
 
@@ -63,6 +63,10 @@ var Gallery = new Class({
 	start: function() {
 		this.doAuto = true;
 		this.auto();
+	},
+
+	toElement: function() {
+		return this.element;
 	},
 
 	guessElementType: function(element) {
