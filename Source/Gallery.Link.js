@@ -1,20 +1,20 @@
 /*
 ---
 
-name: Slide.Link
-description: Slide Element for Slide
+name: Gallery.Link
+description: Gallery Element for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide.Element]
-provides: [Slide.Link]
+requires: [Gallery.Element]
+provides: [Gallery.Link]
 
 ...
 */
 
-Slide.Link = new Class({
+Gallery.Link = new Class({
 
-	Extends: Slide.Element,
+	Extends: Gallery.Element,
 
 	options: {
 		width: 200,
@@ -42,10 +42,10 @@ Slide.Link = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	addLink: function(link, options) {
-		return new Slide.Link(link, this, options);
+		return new Gallery.Link(link, this, options);
 	}
 
 });

@@ -1,20 +1,20 @@
 /*
 ---
 
-name: Slide.Image
-description: Slide Element for Slide
+name: Gallery.Image
+description: Gallery Element for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide.Element]
-provides: [Slide.Image]
+requires: [Gallery.Element]
+provides: [Gallery.Image]
 
 ...
 */
 
-Slide.Image = new Class({
+Gallery.Image = new Class({
 
-	Extends: Slide.Element,
+	Extends: Gallery.Element,
 
 	options: {
 		size: { width: 'auto', height: 'auto' },
@@ -79,7 +79,7 @@ Slide.Image = new Class({
 Gallery.implement({
 
 	addImage: function(image, options) {
-		return new Slide.Image(image, this, options);
+		return new Gallery.Image(image, this, options);
 	}
 
 });

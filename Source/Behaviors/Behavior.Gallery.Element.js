@@ -1,15 +1,15 @@
 /*
 ---
-name: Behavior.Slide.Element
+name: Behavior.Gallery.Element
 description: ...
-provides: [Behavior.Slide.Element]
-requires: [Behavior/Behavior, More/Object.Extras, Slide.Image, Slide.Div, Slide.Link.Request, Behavior.Slide]
-script: Behavior.Slide.Element.js
+provides: [Behavior.Gallery.Element]
+requires: [Behavior/Behavior, More/Object.Extras, Gallery.Image, Gallery.Div, Gallery.Link.Request, Behavior.Slide]
+script: Behavior.Gallery.Element.js
 
 ...
 */
 
-Behavior.addGlobalFilter('Slide.Element', {
+Behavior.addGlobalFilter('Gallery.Element', {
 
 	defaults: {
 		target: '![data-behavior="Slide"], ![data-behavior="Line"]',

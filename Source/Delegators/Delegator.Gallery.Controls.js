@@ -1,10 +1,10 @@
 /*
 ---
-description: Slide Controls
+description: Gallery Controls
 provides: [Delegator.SlideControls]
 requires: [Behavior/Delegator, Core/Element, Slide]
-script: Delegator.SlideControls.js
-name: Delegator.SlideControls
+script: Delegator.Gallery.Controls.js
+name: Delegator.Gallery.Controls
 ...
 */
 
@@ -14,7 +14,7 @@ name: Delegator.SlideControls
 
 	['start', 'stop', 'next', 'previous'].each(function(action) {
 
-		triggers['Slide.' + action] = {
+		triggers['Gallery.' + action] = {
 			defaults: {
 				targets: '!div > [data-behavior="Slide"], !div > * > [data-behavior="Slide"], !body [data-behavior="Slide"], !div > [data-behavior="Line"], !div > * > [data-behavior="Line"], !body [data-behavior="Line"]'
 			},

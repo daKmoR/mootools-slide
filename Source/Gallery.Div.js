@@ -1,20 +1,20 @@
 /*
 ---
 
-name: Slide.Div
-description: Slide Element for Slide
+name: Gallery.Div
+description: Gallery Element for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide.Element]
-provides: [Slide.Div]
+requires: [Gallery.Element]
+provides: [Gallery.Div]
 
 ...
 */
 
-Slide.Div = new Class({
+Gallery.Div = new Class({
 
-	Extends: Slide.Element,
+	Extends: Gallery.Element,
 
 	show: function() {
 		this.parent();
@@ -51,7 +51,7 @@ Slide.Div = new Class({
 Gallery.implement({
 
 	addDiv: function(div, options) {
-		return new Slide.Div(div, this, options);
+		return new Gallery.Div(div, this, options);
 	}
 
 });

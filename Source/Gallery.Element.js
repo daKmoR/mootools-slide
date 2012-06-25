@@ -1,18 +1,18 @@
 /*
 ---
 
-name: Slide.Element
-description: Slide Element for Slide
+name: Gallery.Element
+description: Gallery Element for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide]
-provides: [Slide.Element]
+requires: [Gallery]
+provides: [Gallery.Element]
 
 ...
 */
 
-Slide.Element = new Class({
+Gallery.Element = new Class({
 
 	Implements: [Options, Chain, Events],
 

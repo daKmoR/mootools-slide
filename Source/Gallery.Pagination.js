@@ -1,26 +1,26 @@
 /*
 ---
 
-name: Slide.Pagination
-description: Slide Pagination for Slide
+name: Gallery.Pagination
+description: Gallery Pagination for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide]
-provides: [Slide.Pagination]
+requires: [Gallery]
+provides: [Gallery.Pagination]
 
 ...
 */
 
-Slide.Pagination = new Class({
+Gallery.Pagination = new Class({
 
 	Implements: [Options, Chain, Events],
 
 	options: {
-		template: '<a data-trigger="Slide.Show" data-slide-show-element="' +
-							'!div > [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle}),' +
-							'!div > * > [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle}),' +
-							'!body [data-behavior=\'Slide\'] [data-behavior=\'Slide.Element\']:nth-child({cycle})' +
+		template: '<a data-trigger="Gallery.Show" data-slide-show-element="' +
+							'!div > [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle}),' +
+							'!div > * > [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle}),' +
+							'!body [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle})' +
 							'"><span>{cycle}</span></a>',
 		activeClass: 'active'
 	},
@@ -64,10 +64,10 @@ Slide.Pagination = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	createPagination: function(element, options) {
-		return new Slide.Pagination(element, this, options);
+		return new Gallery.Pagination(element, this, options);
 	}
 
 });

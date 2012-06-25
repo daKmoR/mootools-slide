@@ -1,20 +1,20 @@
 /*
 ---
 
-name: Slide.Link.Request
-description: Slide Element for Slide
+name: Gallery.Link.Request
+description: Gallery Element for Gallery
 license: MIT-style license
 authors:
   - Thomas Allmer
-requires: [Slide.Link, Core/Request.HTML, More/Spinner]
-provides: [Slide.Link.Request]
+requires: [Gallery.Link, Core/Request.HTML, More/Spinner]
+provides: [Gallery.Link.Request]
 
 ...
 */
 
-Slide.Link.Request = new Class({
+Gallery.Link.Request = new Class({
 
-	Extends: Slide.Link,
+	Extends: Gallery.Link,
 
 	options: {
 		width: 800,
@@ -63,10 +63,10 @@ Slide.Link.Request = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	addLinkRequest: function(link, options) {
-		return new Slide.Link.Request(link, this, options);
+		return new Gallery.Link.Request(link, this, options);
 	}
 
 });

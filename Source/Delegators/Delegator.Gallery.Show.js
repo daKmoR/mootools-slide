@@ -1,16 +1,16 @@
 /*
 ---
 description: ...
-provides: [Delegator.Slide.Show]
+provides: [Delegator.Gallery.Show]
 requires: [Behavior/Delegator, Core/Element, Slide]
-script: Delegator.Slide.Show.js
-name: Delegator.Slide.Show
+script: Delegator.Gallery.Show.js
+name: Delegator.Gallery.Show
 ...
 */
 
 (function(){
 
-	Delegator.register('click', 'Slide.Show', {
+	Delegator.register('click', 'Gallery.Show', {
 
 		require: ['element'],
 
@@ -30,7 +30,7 @@ name: Delegator.Slide.Show
 			if (!element) {
 				api.fail('could not locate element to show in target slide', link);
 			}
-			var slideElement = element.getBehaviorResult('Slide.Element');
+			var slideElement = element.getBehaviorResult('Gallery.Element');
 
 			slide.show(slideElement);
 		}

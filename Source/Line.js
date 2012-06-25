@@ -1,10 +1,10 @@
 /*
 ---
 
-name: SlideLine
+name: Line
 description: allows to create a Slide Line [CSS:Slide/Source/Css/Line.css]
 license: MIT-style license.
-requires: [Slide]
+requires: [Gallery]
 provides: Line
 
 ...
