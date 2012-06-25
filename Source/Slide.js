@@ -23,13 +23,13 @@ var Slide = new Class({
 	},
 
 	currentElement: null,
-	_elements: [],
+	elements: [],
 
 	initialize: function(element, options) {
 		this.parent(element, options);
 		this.container = this.element.getParent();
 		(function() {
-			this.display(this._elements[0]);
+			this.display(this.elements[0]);
 		}).delay(2, this);
 
 		window.addEvent('resize', function() {
@@ -47,15 +47,15 @@ var Slide = new Class({
 
 	start: function() {
 		if (this.getSize().height.toInt() === 0) {
-			this.setSize(this._elements[0].options.size);
+			this.setSize(this.elements[0].options.size);
 		}
-		if (this._elements.length > 1) {
+		if (this.elements.length > 1) {
 			this.parent();
 		}
 	},
 
 	display: function(element) {
-		element = typeOf(element) === 'number' ? this._elements[element] : element;
+		element = typeOf(element) === 'number' ? this.elements[element] : element;
 		if (this.currentElement && this.currentElement !== element) {
 			this.currentElement.hide();
 		}
@@ -71,7 +71,7 @@ var Slide = new Class({
 	},
 
 	show: function(element) {
-		element = typeOf(element) === 'number' ? this._elements[element] : element;
+		element = typeOf(element) === 'number' ? this.elements[element] : element;
 		if (this.currentElement && this.currentElement !== element) {
 			this.currentElement.hide();
 //			this.currentElement.hide().chain(
@@ -94,7 +94,7 @@ var Slide = new Class({
 		this.currentElement = !this.currentElement ? this.lastAddedElement : this.currentElement;
 		var nextElement = this.currentElement.getNextElement();
 		if (this.options.mode === 'repeat' && nextElement == null) {
-			nextElement = this._elements[0];
+			nextElement = this.elements[0];
 		}
 		if (nextElement) {
 			this.show(nextElement);
@@ -105,7 +105,7 @@ var Slide = new Class({
 		this.currentElement = !this.currentElement ? this.lastAddedElement : this.currentElement;
 		var previousElement = this.currentElement.getPreviousElement();
 		if (this.options.mode === 'repeat' && previousElement == null) {
-			previousElement = this._elements[this._elements.length-1];
+			previousElement = this.elements[this.elements.length-1];
 		}
 		if (previousElement) {
 			this.show(previousElement);

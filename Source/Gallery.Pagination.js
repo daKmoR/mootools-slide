@@ -47,7 +47,7 @@ Gallery.Pagination = new Class({
 	},
 
 	build: function() {
-		this.slide._elements.each(function(element, i) {
+		this.slide.elements.each(function(element, i) {
 			var paginationItem = this.options.template.substitute({
 				index: i,
 				cycle: i+1

@@ -49,7 +49,7 @@ Gallery.Element = new Class({
 			this.slide.lastAddedElement.setNextElement(this);
 		}
 		this.slide.lastAddedElement = this;
-		this.slide._elements.push(this);
+		this.slide.elements.push(this);
 
 		document.id(this.slide).grab(this.element);
 	},

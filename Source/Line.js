@@ -23,7 +23,7 @@ var Line = new Class({
 		elementSize: { width: 121, height: 105 }
 	},
 
-	_elements: [],
+	elements: [],
 	currentStep: 0,
 
 	initialize: function(element, options) {
@@ -46,7 +46,7 @@ var Line = new Class({
 		this.currentStep += this.options.steps;
 		this.visibleSteps = Math.round(this.container.getWidth() / this.options.elementSize.width);
 
-		if (this.currentStep + this.visibleSteps >= this._elements.length) {
+		if (this.currentStep + this.visibleSteps >= this.elements.length) {
 			this.currentStep -= this.options.steps*2;
 			this.element.setStyle('margin-left', this.currentStep * -this.options.elementSize.width);
 			var elements = this.element.getElements('> *');
