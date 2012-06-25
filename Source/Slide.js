@@ -27,17 +27,14 @@ var Slide = new Class({
 
 	initialize: function(wrap, options) {
 		if (!(this.wrap = document.id(wrap))) return;
-		this.parent(options);
+		this.parent(wrap, options);
 		this.build();
 		(function() {
-			this.show(this._elements[0]);
+			this.display(this._elements[0]);
 		}).delay(2, this);
-		if (this.options.auto === true) {
-			this.start.delay(10, this);
-		}
 
 		window.addEvent('resize', function() {
-			this.currentElement.show();
+			this.currentElement.display();
 		}.bind(this));
 	},
 
@@ -62,7 +59,23 @@ var Slide = new Class({
 		}
 	},
 
-	show: function(element, fxGroup) {
+	display: function(element) {
+		element = typeOf(element) === 'number' ? this._elements[element] : element;
+		if (this.currentElement && this.currentElement !== element) {
+			this.currentElement.hide();
+		}
+		if (this.currentElement !== element) {
+			element.display();
+		}
+		if (this.options.containerPosition !== null) {
+			this.container.position();
+		}
+
+		this.fireEvent('display', element);
+		this.currentElement = element;
+	},
+
+	show: function(element) {
 		element = typeOf(element) === 'number' ? this._elements[element] : element;
 		if (this.currentElement && this.currentElement !== element) {
 			this.currentElement.hide();
@@ -101,52 +114,6 @@ var Slide = new Class({
 		}
 		if (previousElement) {
 			this.show(previousElement);
-		}
-	},
-
-	guessElementType: function(element) {
-		switch (element.get('tag')) {
-			case 'img':
-				return 'Image';
-			case 'p':
-			case 'span':
-			case 'div':
-				return 'Div';
-		}
-
-		if (element.get('tag') === 'a') {
-			var href = element.get('href');
-			var fileExt = href.substr(href.lastIndexOf('.') + 1).toLowerCase();
-			switch (fileExt) {
-				case 'jpg':
-				case 'gif':
-				case 'png':
-					return 'Link.Image';
-				case 'swf':
-					return 'Link.Flash';
-				case 'flv':
-					return 'Link.FlashVideo';
-				case 'mov':
-					return 'Link.QuickTime';
-				case 'wmv':
-					return 'Link.WindowsMedia';
-				case 'rv':
-				case 'rm':
-				case 'rmvb':
-					return 'Link.RealMedia';
-				case 'mp3':
-					return 'Link.FlashMp3';
-				default:
-					if (href.charAt(0) === '#') {
-						return 'Link.Inline';
-					} else if (document.location.host === href.toURI().get('host') + (document.location.host.contains(':') ? ':' + href.toURI().get('port') : '')) {
-						return 'Link.Request';
-					} else if (href.contains('youtube.com') || href.contains('youtu.be')) {
-						return 'Link.YouTube';
-					} else {
-						return 'Link.Iframe';
-					}
-			}
 		}
 	}
 

@@ -12,11 +12,11 @@ provides: SlideLine
 
 var SlideLine = new Class({
 
-	Extends: Slide,
+	Extends: Gallery,
 
 	options: {
 		mode: 'repeat', /* [repeat, reverse, random, once] */
-		autoStart: true,
+		auto: true,
 		positionContainer: false,
 		container: null,
 		steps: 1,
@@ -28,6 +28,7 @@ var SlideLine = new Class({
 
 	initialize: function(wrap, options) {
 		this.parent(wrap, options);
+		this.container = this.wrap.getParent();
 	},
 
 	guessSize: function() {

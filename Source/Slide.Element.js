@@ -67,6 +67,10 @@ Slide.Element = new Class({
 	},
 
 	show: function() {
+		this.display();
+	},
+
+	display: function() {
 		this.element.set('style', this.savedStyle);
 		this.element.setStyle('display', 'block');
 	},
@@ -89,7 +93,7 @@ Slide.Element = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	addElement: function(element, options) {
 		var slideElement;

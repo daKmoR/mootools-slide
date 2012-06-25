@@ -76,7 +76,7 @@ Slide.Image = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	addImage: function(image, options) {
 		return new Slide.Image(image, this, options);

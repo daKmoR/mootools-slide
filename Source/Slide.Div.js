@@ -48,7 +48,7 @@ Slide.Div = new Class({
 
 });
 
-Slide.implement({
+Gallery.implement({
 
 	addDiv: function(div, options) {
 		return new Slide.Div(div, this, options);
