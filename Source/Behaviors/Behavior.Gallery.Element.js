@@ -18,7 +18,8 @@ Behavior.addGlobalFilter('Gallery.Element', {
 		width: null,
 		height: null,
 		adjust: null,
-		requestfilter: null
+		requestfilter: null,
+		hidefx: null
 	},
 
 	setup: function(element, api) {
@@ -31,7 +32,8 @@ Behavior.addGlobalFilter('Gallery.Element', {
 					width: Number,
 					height: Number
 				})
-			)
+			),
+			hideFx: api.getAs(String, 'hidefx')
 		});
 
 		Object.merge(options, Object.cleanValues(
