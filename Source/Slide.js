@@ -66,8 +66,7 @@ var Slide = new Class({
 			this.container.position();
 		}
 
-		this.fireEvent('display', element);
-		this.currentElement = element;
+		this.parent(element);
 	},
 
 	show: function(element) {
@@ -85,9 +84,7 @@ var Slide = new Class({
 			this.container.position();
 		}
 
-		this.fireEvent('show', element);
-		this.currentElement = element;
-		this.parent();
+		this.parent(element);
 	},
 
 	next: function() {

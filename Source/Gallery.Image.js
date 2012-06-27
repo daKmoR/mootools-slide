@@ -37,6 +37,11 @@ Gallery.Image = new Class({
 		}
 	},
 
+	display: function() {
+		this.parent();
+		this.adjustSizeTo(this.slide.getSize());
+	},
+
 	show: function() {
 		this.parent();
 		this.adjustSizeTo(this.slide.getSize());

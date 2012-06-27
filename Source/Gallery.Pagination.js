@@ -17,7 +17,7 @@ Gallery.Pagination = new Class({
 	Implements: [Options, Chain, Events],
 
 	options: {
-		template: '<a data-trigger="Gallery.Show" data-slide-show-element="' +
+		template: '<a data-trigger="Gallery.Show" data-gallery-show-element="' +
 							'!div > [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle}),' +
 							'!div > * > [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle}),' +
 							'!body [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle})' +

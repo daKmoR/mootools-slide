@@ -41,7 +41,14 @@ var Gallery = new Class({
 	next: function() {}
 	 */
 
-	show: function() {
+	display: function(element) {
+		this.fireEvent('show', element);
+		this.currentElement = element;
+	},
+
+	show: function(element) {
+		this.fireEvent('show', element);
+		this.currentElement = element;
 		if (this.doAuto === true) {
 			this.auto();
 		}
