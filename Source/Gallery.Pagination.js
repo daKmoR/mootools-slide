@@ -22,7 +22,8 @@ Gallery.Pagination = new Class({
 							'!div > * > [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle}),' +
 							'!body [data-behavior=\'Slide\'] [data-behavior=\'Gallery.Element\']:nth-child({cycle})' +
 							'"><span>{cycle}</span></a>',
-		activeClass: 'active'
+		activeClass: 'active',
+		forceShow: false
 	},
 
 	element: null,
@@ -47,19 +48,21 @@ Gallery.Pagination = new Class({
 	},
 
 	build: function() {
-		this.slide.elements.each(function(element, i) {
-			var paginationItem = this.options.template.substitute({
-				index: i,
-				cycle: i+1
-			});
+		if (this.slide.elements.length > 1 || this.options.forceShow === true) {
+			this.slide.elements.each(function(element, i) {
+				var paginationItem = this.options.template.substitute({
+					index: i,
+					cycle: i+1
+				});
 
-			var temp = new Element('div');
-			temp.set('html', paginationItem);
-			paginationItem = temp.getElement('*');
-			paginationItem.element = element;
-			this.items.push(paginationItem);
-			paginationItem.inject(this.element);
-		}, this);
+				var temp = new Element('div');
+				temp.set('html', paginationItem);
+				paginationItem = temp.getElement('*');
+				paginationItem.element = element;
+				this.items.push(paginationItem);
+				paginationItem.inject(this.element);
+			}, this);
+		}
 	}
 
 });
