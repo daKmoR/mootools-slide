@@ -12,7 +12,7 @@ script: Behavior.Slide.js
 Behavior.addGlobalFilter('Slide', {
 
 	defaults: {
-		'containerposition': false,
+		'containerposition': false
 	},
 
 	setup: function(element, api) {
