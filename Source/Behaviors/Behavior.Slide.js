@@ -13,13 +13,17 @@ Behavior.addGlobalFilter('Slide', {
 
 	defaults: {
 		'containerposition': false,
-		'auto': true
 	},
 
 	setup: function(element, api) {
-		var options = {
-			auto: api.getAs(Boolean, 'auto')
-		};
+		var options = {};
+
+		Object.merge(options, Object.cleanValues(
+			api.getAs({
+				auto: Boolean,
+				duration: Number
+			})
+		));
 
 		if (api.getAs(Boolean, 'containerposition')) {
 			options.containerPosition = { position: 'center' };
