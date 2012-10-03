@@ -41,40 +41,26 @@ var Line = new Class({
 		this.options.elementSize.width = dim.totalWidth;
 	},
 
-	next: function(times) {
-		this.guessSize();
-		this.currentStep += this.options.steps;
-		this.visibleSteps = Math.round(this.container.getWidth() / this.options.elementSize.width);
-
-		if (this.currentStep + this.visibleSteps >= this.elements.length) {
-			this.currentStep -= this.options.steps*2;
-			this.element.setStyle('margin-left', this.currentStep * -this.options.elementSize.width);
-			var elements = this.element.getElements('> *');
-			for (var i = 0; i < this.options.steps; i++) {
-				elements[i].inject(this.element, 'bottom');
-			}
-			this.currentStep += this.options.steps;
+	next: function(times, _mode) {
+		var newMarginLeft = this.element.getStyle('margin-left').toInt();
+		var elements = this.element.getElements('> *');
+		var mode = _mode || 'left';
+		for (var i = 0; i < this.options.steps; i++) {
+			this.guessSize();
+			newMarginLeft -= this.options.elementSize.width;
 		}
-		this.element.tween('margin-left', this.currentStep * -this.options.elementSize.width);
+		this.element.tween('margin-left', newMarginLeft).get('tween').chain(function() {
+			for (var i = 0; i < this.options.steps; i++) {
+				elements[i].inject(this.element, mode === 'left' ? 'bottom' : 'top');
+				newMarginLeft = mode === 'left' ? newMarginLeft - this.options.elementSize.width : newMarginLeft + this.options.elementSize.width;
+			}
+			this.element.setStyle('margin-left', 0);
+		}.bind(this));
 		this.show();
 	},
 
-	previous: function() {
-		this.guessSize();
-		this.currentStep -= this.options.steps;
-		this.visibleSteps = Math.round(this.container.getWidth() / this.options.elementSize.width);
-
-		if (this.currentStep < 0) {
-			this.currentStep += this.options.steps*2;
-			this.element.setStyle('margin-left', this.currentStep * -this.options.elementSize.width);
-			var elements = this.element.getElements('> *');
-			for (var i = 0; i < this.options.steps; i++) {
-				elements[elements.length - 1 - i].inject(this.element, 'top');
-			}
-			this.currentStep -= this.options.steps;
-		}
-		this.element.tween('margin-left', this.currentStep * -this.options.elementSize.width);
-		this.show();
+	previous: function(times) {
+		this.next(times, 'right');
 	}
 
 });
