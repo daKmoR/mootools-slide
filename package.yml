@@ -23,6 +23,7 @@ sources:
   - Source/Gallery.Pagination.js
   - Source/Slide.js
   - Source/Line.js
+  - Source/Marquee.js
   - Source/Behaviors/Behavior.Slide.js
   - Source/Behaviors/Behavior.Line.js
   - Source/Behaviors/Behavior.Gallery.Element.js

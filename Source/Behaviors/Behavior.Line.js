@@ -3,7 +3,7 @@
 name: Behavior.Line
 description: Adds a slideLine interface
 provides: [Behavior.Line]
-requires: [Behavior/Behavior, Line]
+requires: [Behavior/Behavior, Line, Marquee]
 script: Behavior.Line.js
 
 ...
@@ -14,7 +14,8 @@ Behavior.addGlobalFilter('Line', {
 	defaults: {
 		'containerposition': false,
 		'duration': 4000,
-		'element-width': 140
+		'element-width': 140,
+		'mode': 'Line'
 	},
 
 	setup: function(element, api) {
@@ -28,7 +29,8 @@ Behavior.addGlobalFilter('Line', {
 		options.duration = api.getAs(Number, 'duration');
 		options.elementSize = { width: api.getAs(Number, 'element-width') };
 
-		return new Line(element, options);
+		return new Marquee(element, options);
+		//return new Line(element, options);
 	}
 
 });

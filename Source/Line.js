@@ -10,6 +10,8 @@ provides: Line
 ...
 */
 
+/* SHOULD BE REFACTORED to use Fx.Scroll */
+
 var Line = new Class({
 
 	Extends: Gallery,
