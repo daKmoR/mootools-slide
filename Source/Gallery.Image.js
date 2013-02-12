@@ -67,6 +67,20 @@ Gallery.Image = new Class({
 			var newSize = { width: this.getSize().width * ratio, height: this.getSize().height * ratio };
 			this.setSize(newSize);
 
+			if (this.options.adjust === 'crop') {
+				if (ratioy > ratiox) {
+					this.element.setStyles({
+						'left': '50%',
+						'margin-left': newSize.width/2*-1
+					});
+				} else {
+					this.element.setStyles({
+						'top': '50%',
+						'margin-top': newSize.height/2*-1
+					});
+				}
+			}
+
 			if (this.options.adjust === 'fitIn') {
 				var paddings = {
 					'padding-left': (sizeTo.width - newSize.width) !== 0 ? (sizeTo.width - newSize.width)/2 : 0,
