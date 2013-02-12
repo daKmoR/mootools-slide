@@ -42,7 +42,8 @@ var Slide = new Class({
 	},
 
 	getSize: function() {
-		return { width: this.element.getStyle('width').toInt(), height: this.element.getStyle('height').toInt() };
+		var size = this.element.getSize();
+		return { width: size.x, height: size.y };
 	},
 
 	start: function() {
