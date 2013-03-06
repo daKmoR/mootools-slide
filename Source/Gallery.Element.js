@@ -67,12 +67,17 @@ Gallery.Element = new Class({
 	},
 
 	show: function() {
-		this.display();
+		this.display(true);
+		this.fireEvent('show', this.element);
 	},
 
-	display: function() {
+	display: function(fromShow) {
+		fromShow = !!(fromShow === true);
 		this.element.set('style', this.savedStyle);
 		this.element.setStyle('display', 'block');
+		if (!fromShow) {
+			this.fireEvent('display', this.element);
+		}
 	},
 
 	getNextElement: function() {
