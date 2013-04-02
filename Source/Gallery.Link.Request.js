@@ -17,10 +17,7 @@ Gallery.Link.Request = new Class({
 	Extends: Gallery.Link,
 
 	options: {
-		width: 800,
-		height: 600,
 		setsSlideSize: true,
-		isStartElement: true,
 		requestfilter: ''
 	},
 
@@ -33,8 +30,6 @@ Gallery.Link.Request = new Class({
 		this.element = element;
 
 		var div = new Element('div', {'class': 'linkRequest'});
-		div.setStyle('width', this.options.width);
-		div.setStyle('height', this.options.height);
 		div.replaces(this.element);
 		this.element = div;
 
@@ -47,7 +42,7 @@ Gallery.Link.Request = new Class({
 			useSpinner: true,
 			onSuccess: function(responseTree, responseElements, responseHTML, responseJavaScript) {
 				this.loaded = true;
-				this.show(true, true);
+				this.display(true, true);
 				this.fireEvent('linkRequestLoaded', div);
 			}.bind(this)
 		});
@@ -55,7 +50,7 @@ Gallery.Link.Request = new Class({
 		this.parent(this.element, slide, options);
 	},
 
-	_show: function() {
+	_display: function() {
 		this.request.send();
 		this.request.getSpinner().element.setStyle('left', 0);
 		this.request.getSpinner().element.setStyle('top', 0);

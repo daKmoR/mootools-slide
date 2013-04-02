@@ -25,16 +25,16 @@ Gallery.Link = new Class({
 		this.parent(element, slide, options);
 	},
 
-	show: function(callParent, noCall_in) {
+	display: function(callParent, noCall_in) {
 		if (noCall_in !== true) {
-			this._show(true);
+			this._display(true);
 		}
 		if (callParent === true) {
 			this.parent();
 		}
 	},
 
-	_show: function(callIn) {
+	_display: function(callIn) {
 		if (callIn == true) {
 			this.show(true);
 		}
