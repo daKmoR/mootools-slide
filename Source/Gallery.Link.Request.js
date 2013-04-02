@@ -30,6 +30,8 @@ Gallery.Link.Request = new Class({
 		this.element = element;
 
 		var div = new Element('div', {'class': 'linkRequest'});
+		div.setStyle('height', this.getSize().height);
+		div.setStyle('width', this.getSize().width);
 		div.replaces(this.element);
 		this.element = div;
 

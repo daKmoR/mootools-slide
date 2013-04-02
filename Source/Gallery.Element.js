@@ -35,12 +35,16 @@ Gallery.Element = new Class({
 		this.savedStyle = this.element.get('style');
 		this.addToSlide();
 		if (this.options.setsSlideSize === true) {
-			this.slide.setSize(this.options.size);
+			this.slide.setSize(this.getSize());
 		}
 //		if (this.options.isStartElement === true) {
 //			//this.slide.currentElement = this;
 //			this.slide.show(this);
 //		}
+	},
+
+	getSize: function() {
+		return this.options.size;
 	},
 
 	addToSlide: function() {

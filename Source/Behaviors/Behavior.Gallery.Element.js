@@ -6,6 +6,12 @@ provides: [Behavior.Gallery.Element]
 requires: [Behavior/Behavior, More/Object.Extras, Gallery.Image, Gallery.Div, Gallery.Link.Request, Behavior.Slide]
 script: Behavior.Gallery.Element.js
 
+Example:
+<div data-behavior="Slide" data-slide-duration="4000" class="...">
+	<img data-behavior="Gallery.Element" src="..." alt="..." />
+	<img data-behavior="Gallery.Element" src="..." alt="..." />
+</div>
+
 ...
 */
 

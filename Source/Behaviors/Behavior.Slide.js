@@ -6,6 +6,13 @@ provides: [Behavior.Slide]
 requires: [Behavior/Behavior, Slide, Delegator.SlideControls]
 script: Behavior.Slide.js
 
+Example Simple:
+<div data-behavior="Slide" data-slide-duration="4000" class="...">
+	<img data-behavior="Gallery.Element" src="..." alt="..." />
+	<img data-behavior="Gallery.Element" src="..." alt="..." />
+</div>
+<div data-behavior="Gallery.Pagination" class="..."></div>
+
 ...
 */
 
