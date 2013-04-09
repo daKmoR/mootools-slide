@@ -32,9 +32,9 @@ var Slide = new Class({
 			this.display(this.elements[0]);
 		}).delay(2, this);
 
-		window.addEvent('resize', function() {
-			this.currentElement.display();
-		}.bind(this));
+//		window.addEvent('resize', function() {
+//			this.currentElement.display();
+//		}.bind(this));
 	},
 
 	setSize: function(size) {
